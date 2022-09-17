@@ -1,19 +1,23 @@
 import tkinter
 from  tkinter import *
+import tkinter as tk
 from tkinter import BOTTOM, Menu, Scrollbar, Tk, XView, font
 from tkinter import messagebox
 from tkinter import filedialog
 from tkinter import scrolledtext
+from scanner import Scanner
 
 
 
 #Variables globales
 wnd_menu = None #ventana menu
-filepath = "" #contenedor del archivo a analizar
+scroll1 =None
+file = "" #contenedor del archivo a analizar
 
 
 def window_mainMenu():
     global wndw_menu
+    global scroll1
     #Configuración ventana menu principal
     wndw_menu = tkinter.Tk()
     wndw_menu.title("App-Scanner")
@@ -34,7 +38,7 @@ def window_mainMenu():
     file_menu.add_separator()
     file_menu.add_command(label="Guardar Como",command=our_command,font=("Courier 10 bold"),background="#E4E3FF")
     file_menu.add_separator()
-    file_menu.add_command(label="Analizar",command=our_command,font=("Courier 10 bold"),background="#E4E3FF")
+    file_menu.add_command(label="Analizar",command=scanner,font=("Courier 10 bold"),background="#E4E3FF")
     file_menu.add_separator()
     file_menu.add_command(label="Errores",command=our_command,font=("Courier 10 bold"),background="#E4E3FF")
     file_menu.add_separator()
@@ -67,16 +71,21 @@ def datau():
 
 def openfile():
     global filepath
+    global file
+    global scroll1
     try:
         filepath = filedialog.askopenfilename()
-        file = open(filepath,'r+',encoding="utf-8")
+        file = open(filepath,'r',encoding="utf-8")
+        contenido=file.read()
         print(file.read())
+        scroll1.insert(tk.INSERT,contenido)
         file.close()
     except:
         pass
 
 def savefile():
     global filepath
+    global file
     try: 
         file = open(filepath,'w',encoding="utf-8")
         file.write("hola buenas :v")
@@ -85,7 +94,13 @@ def savefile():
         pass
 
 def scanner():
-    pass
+    global filepath
+    global file
+    global scroll1
+    contenido1 = scroll1.get(1.0,END)
+    ScannerGG = Scanner()
+    ScannerGG.analyze(contenido1)
+    ScannerGG.printScannergg()
 
 
 window_mainMenu()
