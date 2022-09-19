@@ -6,6 +6,7 @@ from tkinter import messagebox
 from tkinter import filedialog
 from tkinter import scrolledtext
 from scanner import Scanner
+from Clases import Error,Token
 
 
 
@@ -13,7 +14,8 @@ from scanner import Scanner
 wnd_menu = None #ventana menu
 scroll1 =None
 file = "" #contenedor del archivo a analizar
-
+bandera = False
+fielpath =""
 
 def window_mainMenu():
     global wndw_menu
@@ -36,7 +38,7 @@ def window_mainMenu():
     file_menu.add_separator()
     file_menu.add_command(label="Guardar",command=savefile,font=("Courier 10 bold"),background="#E4E3FF")
     file_menu.add_separator()
-    file_menu.add_command(label="Guardar Como",command=our_command,font=("Courier 10 bold"),background="#E4E3FF")
+    file_menu.add_command(label="Guardar Como",command=saveas,font=("Courier 10 bold"),background="#E4E3FF")
     file_menu.add_separator()
     file_menu.add_command(label="Analizar",command=scanner,font=("Courier 10 bold"),background="#E4E3FF")
     file_menu.add_separator()
@@ -58,6 +60,7 @@ def window_mainMenu():
 
     scroll2 = scrolledtext.ScrolledText(wndw_menu, width =60, height=40, font=('Courier', 10),wrap = WORD)
     scroll2.place(x=515,y=10)
+    scroll2.configure(state='disabled')
     scroll2.focus()
 
     wndw_menu.mainloop()
@@ -70,37 +73,67 @@ def datau():
 
 
 def openfile():
-    global filepath
     global file
     global scroll1
-    try:
-        filepath = filedialog.askopenfilename()
-        file = open(filepath,'r',encoding="utf-8")
-        contenido=file.read()
-        print(file.read())
-        scroll1.insert(tk.INSERT,contenido)
-        file.close()
+    global bandera
+    global filpathh
+    filpathh = filedialog.askopenfilename(title='Abrir Archivo',filetypes = (("LFP files", "*.lfp*"), ("Text Files","*.txt"),("all files", "*.*")))
+    try: 
+        if filpathh != "":
+            if(bandera==False):
+                file = open(filpathh,'r',encoding="utf-8")
+                contenido=file.read()
+                scroll1.insert(tk.INSERT,contenido)
+                print(contenido)
+                file.close()
+                bandera = True                
+                tkinter.messagebox.showinfo("ALERTA", "Se cargo el araachivo exitosamente")
+            else:
+                tkinter.messagebox.showinfo("ERROR", "Ya se cargó  este archivo")
+                
+        else:
+            tkinter.messagebox.showinfo("ERROR", "No se cargó ningún archivo")
+        
     except:
         pass
 
+
+
 def savefile():
-    global filepath
-    global file
+    global filpathh
+    global scroll1
+    contenido1 = scroll1.get(1.0,tkinter.END)
     try: 
-        file = open(filepath,'w',encoding="utf-8")
-        file.write("hola buenas :v")
+        file = open(filpathh,'w',encoding="utf-8")
+        file.write(contenido1)
         file.close()
-    except:
+        tkinter.messagebox.showinfo("GUARDAR", "Se sobrescribió el archivo :D")
+    except Exception as e:
         pass
+
+def saveas():
+    global scroll1
+    contenido2= scroll1.get(1.0,tkinter.END)
+    filegg = filedialog.asksaveasfilename(title='Guardar Archivo',filetypes = (("LFP files", "*.lfp*"), ("Text Files","*.txt"),("all files", "*.*")))
+    try: 
+        file = open(filegg,'w',encoding="utf-8")
+        file.write(contenido2)
+        file.close()
+        tkinter.messagebox.showinfo("GUARDAR", "Se guard un nuevo archivo :D")
+    except Exception as e:
+            print(e)
+
 
 def scanner():
     global filepath
     global file
     global scroll1
-    contenido1 = scroll1.get(1.0,END)
-    ScannerGG = Scanner()
-    ScannerGG.analyze(contenido1)
-    ScannerGG.printScannergg()
-
+    contenido1 = scroll1.get(1.0,tkinter.END)
+    if contenido1 != "":
+        ScannerGG = Scanner()
+        ScannerGG.analyze(contenido1)
+        ScannerGG.printScannergg()
+    else:
+        tkinter.messagebox.showinfo("ERROR", "No se puede analizar")
 
 window_mainMenu()

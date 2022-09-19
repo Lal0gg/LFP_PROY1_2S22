@@ -25,8 +25,8 @@
 </Tipo>
 
 <Texto>  
-"Realizar las operaciones básicas de suma, resta, multiplicación y 
-división así como operaciones complejas."  
+Realizar las operaciones básicas de suma, resta, multiplicación y 
+división así como operaciones complejas.  
 </Texto>
 
 <Funcion= ESCRIBIR>
