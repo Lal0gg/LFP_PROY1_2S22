@@ -1,0 +1,35 @@
+Menor = 0
+Tipo = 1
+Mayor = 2
+
+Menor =3
+Operacion = 4
+Igual = 5
+Suma =6 
+Mayor = 7 
+
+Menor = 8
+Numero = 9
+Mayor = 10
+
+n = 11 
+FUNCION NORMALES
+--------------------------------------------------------
+for i in range(len listatokens):
+if listaToken[i].tipo == TK_OPERACION:
+	t1=listaTon[i+2]
+	contador = i+7
+	listaNumeors = []
+	while listatoken[contador].tipo!= TK_NUMERIO
+		listaNumeors.append(listatokens[contador+2])
+		contador+=8
+	if t1.lexema == 'SUMA':
+	total = 0
+		for j in range(len(listanumeors)):		
+			Total+=float(listanumeors[j].lexema)
+	elif t1.lexema == 'RESTA':
+	total = 0
+		for j in range(len(listanumeors)):		
+			Total-=float(listanumeors[j].lexema)
+			
+		
