@@ -7,6 +7,7 @@ from tkinter import filedialog
 from tkinter import scrolledtext
 from scanner import Scanner
 from Clases import Error,Token
+from reporteEr import *
 
 
 
@@ -16,6 +17,7 @@ scroll1 =None
 file = "" #contenedor del archivo a analizar
 bandera = False
 fielpath =""
+ScannerGG = Scanner()
 
 def window_mainMenu():
     global wndw_menu
@@ -42,7 +44,7 @@ def window_mainMenu():
     file_menu.add_separator()
     file_menu.add_command(label="Analizar",command=scanner,font=("Courier 10 bold"),background="#E4E3FF")
     file_menu.add_separator()
-    file_menu.add_command(label="Errores",command=our_command,font=("Courier 10 bold"),background="#E4E3FF")
+    file_menu.add_command(label="Errores",command=report,font=("Courier 10 bold"),background="#E4E3FF")
     file_menu.add_separator()
     file_menu.add_command(label="Salir",font=("Courier 10 bold"),background="#E4E3FF",command=wndw_menu.quit)
     #Items del menú2
@@ -97,6 +99,10 @@ def openfile():
     except:
         pass
 
+def report():
+    global ScannerGG
+    generararchivoE(ScannerGG.listaErrores,ScannerGG.listaTokens)
+
 
 
 def savefile():
@@ -128,9 +134,9 @@ def scanner():
     global filepath
     global file
     global scroll1
+    global ScannerGG
     contenido1 = scroll1.get(1.0,tkinter.END)
     if contenido1 != "":
-        ScannerGG = Scanner()
         ScannerGG.analyze(contenido1)
         ScannerGG.printScannergg()
     else:

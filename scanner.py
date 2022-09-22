@@ -91,7 +91,7 @@ class Scanner:
                             state ='q_0'
                             print('Análisis Exitoso')
                         else:
-                            self.listaErrores.append(Error(caracter + "No Es Reconocido Como Token de Este Lenguaje...", 'lexico', line, column)) 
+                            self.listaErrores.append(Error(caracter, "ERROR", 'No es reconocido Como Token de Este Lenguaje', line, column)) 
                             buffer = ''
                             column += 1
                     elif state =='q_1':
@@ -240,7 +240,7 @@ class Scanner:
                                 state='q_0'
                                 indexx-=1
                             else:
-                                self.listaErrores.append(Error(buffer  + "  | No Es Reconocido Como Token de Este Lenguaje...", 'lexico', line, column))
+                                self.listaErrores.append(Error(buffer,  'ERROR',"No Es Reconocido Como Token de Este Lenguaje", line, column))
                                 buffer=''
                                 state='q_0'
                                 indexx-=1

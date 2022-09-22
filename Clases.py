@@ -10,7 +10,8 @@ class Token:
         print('Lexema: ', self.lexeme , ' |Tipo: ', self.type, 'Linea: ' , self.line, 'Columna: ', self.column)
 
 class Error:
-    def __init__(self, description, type, line, column):
+    def __init__(self,caracter, description, type, line, column):
+        self.caracter = caracter
         self.description = description
         self.type = type
         self.line = line
@@ -18,6 +19,7 @@ class Error:
 
     def getInfoErrores(self):
         print('_'*40)
-        print('Descripcion: ', self.description , '|Tipo: ', self.type, 'Linea: ' , self.line, 'Columna: ', self.column)
+        print(self.caracter,'Descripcion: ', self.description , '|Tipo: ', self.type, 'Linea: ' , self.line, 'Columna: ', self.column)
+
 
 
