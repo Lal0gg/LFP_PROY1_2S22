@@ -50,6 +50,7 @@
     <Numero>7</Numero>
 </Operacion>
 
+
 </Tipo>
 
 <Texto>

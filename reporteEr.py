@@ -72,7 +72,7 @@ def tablaer(Errores):
       <th scope="row">""" + str(contador) + """</th>
       <th>""" + str('Léxico') + """</th>
       <th>""" + str(error.caracter) + """</th>
-      <th>""" + str(error.type) + """</th>
+      <th>""" + str(error.tipo) + """</th>
       <th>""" + str(error.line) + """</th>
       <th>""" + str(error.column) + """</th>
     </tr>
@@ -104,7 +104,7 @@ def tablate(Tokens):
         contenido += """
         <tr class="table-info">
       <th scope="row">""" + str(contador) + """</th>
-      <th>""" + str(token.type) + """</th>
+      <th>""" + str(token.tipo) + """</th>
       <th>""" + str(token.lexeme) + """</th>
       <th>""" + str(token.line) + """</th>
       <th>""" + str(token.column) + """</th>

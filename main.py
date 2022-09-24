@@ -11,6 +11,7 @@ from reporteEr import *
 
 
 
+
 #Variables globales
 wnd_menu = None #ventana menu
 scroll1 =None
@@ -138,7 +139,9 @@ def scanner():
     contenido1 = scroll1.get(1.0,tkinter.END)
     if contenido1 != "":
         ScannerGG.analyze(contenido1)
-        ScannerGG.printScannergg()
+        #ScannerGG.printScannergg()
+        # ScannerGG.printList()
+        ScannerGG.Operar()
     else:
         tkinter.messagebox.showinfo("ERROR", "No se puede analizar")
 
