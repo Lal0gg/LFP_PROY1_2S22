@@ -8,6 +8,7 @@ from tkinter import scrolledtext
 from scanner import Scanner
 from Clases import Error,Token
 from reporteEr import *
+from reporteOp import *
 
 
 
@@ -104,6 +105,10 @@ def report():
     global ScannerGG
     generararchivoE(ScannerGG.listaErrores,ScannerGG.listaTokens)
 
+def reportOP():
+    global ScannerGG
+    generararchivoOp(ScannerGG.operaciones)
+
 
 
 def savefile():
@@ -142,6 +147,7 @@ def scanner():
         #ScannerGG.printScannergg()
         # ScannerGG.printList()
         ScannerGG.Operar()
+        reportOP()
     else:
         tkinter.messagebox.showinfo("ERROR", "No se puede analizar")
 

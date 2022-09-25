@@ -14,6 +14,17 @@ class Scanner:
         self.colores=['AZUL','ROJO','AMARILLO', 'VERDE','NEGRO', 'ROSADO', 'ANARANJADO', 'MORADO','TURQUESA','CYAN','NARANJA','ROSA','PURPURA','CAFÉ','CAFE','GRIS']
         self.contador= 0
         self.operaciones = []
+        self.contadors=0
+        self.contadorr=0
+        self.contadorm=0
+        self.contadord=0
+        self.contadorp=0
+        self.contadorra=0
+        self.contadori=0
+        self.contadorsen=0
+        self.contadorcos=0
+        self.contadortan=0
+        self.contadormod=0
         
     def analyze(self,contenido):
         self.listaTokens = []
@@ -325,6 +336,8 @@ class Scanner:
                     listaNums.append(self.listaTokens[contador+2])
                     contador+=8
                 if t1.lexeme == 'SUMA':
+                    if t1.lexeme== 'SUMA':
+                        self.contadors+=1
                     listaSumasSimps =[]
                     Ope = Operacion('+')
                     total = 0
@@ -334,45 +347,65 @@ class Scanner:
                     suma= listaSumasSimps[0]+listaSumasSimps[1]
                     Ope.numeros=listaSumasSimps
                     Ope.total=suma
+                    Ope.contador =self.contadors
+                    Ope.texto='Suma'
                     self.operaciones.append(Ope)
                     print("Resultado: " + str(suma))
+                    print('Número de Sumas: ',self.contadors)
                 elif t1.lexeme == 'RESTA':
+                    if t1.lexeme== 'RESTA':
+                        self.contadorr+=1
                     listaRestasSimps=[]
                     Ope1 = Operacion('-')
                     tot = 0
                     for x in range (len(listaNums)):
                         listaRestasSimps.append(float(listaNums[x].lexeme))
                     print('Resta: ',listaRestasSimps)
+                    print('Número de Restas: ',self.contadorr)
                     resta= listaRestasSimps[0]-listaRestasSimps[1]
                     Ope1.numeros=listaRestasSimps
                     Ope1.total=resta
+                    Ope1.contador=self.contadorr
+                    Ope1.texto='Resta'
                     self.operaciones.append(Ope1)
                     print("Resultado: " + str(resta))
                 elif t1.lexeme == 'MULTIPLICACION':
+                    if t1.lexeme== 'MULTIPLICACION':
+                        self.contadorm+=1
                     listaMultiSimps=[]
                     Ope2=Operacion('x')
                     tot2 = 0
                     for y in range (len(listaNums)):
                         listaMultiSimps.append(float(listaNums[y].lexeme))
                     print('Multi: ',listaMultiSimps)
+                    print('Número de Multi: ',self.contadorm)
                     multi= listaMultiSimps[0]*listaMultiSimps[1]
                     Ope2.numeros=listaMultiSimps
                     Ope2.total=multi
+                    Ope2.contador =self.contadorm
+                    Ope2.texto='Multiplicación'
                     self.operaciones.append(Ope2)
                     print("Resultado: " + str(multi))
                 elif t1.lexeme == 'DIVISION':
+                    if t1.lexeme== 'DIVISION':
+                        self.contadord+=1
                     listaDivSimps=[]
                     Op3=Operacion('/')
                     tot2 = 0
                     for ewe in range (len(listaNums)):
                         listaDivSimps.append(float(listaNums[ewe].lexeme))
                     print('Divison: ',listaDivSimps)
+                    print('Número de Div: ',self.contadord)
                     div= listaDivSimps[0]/listaDivSimps[1]
                     Op3.numeros=listaDivSimps
                     Op3.total=div
+                    Op3.contador=self.contadord
+                    Op3.texto='Division'
                     self.operaciones.append(Op3)
                     print("Resultado: " + str(div))
                 elif t1.lexeme == 'POTENCIA':
+                    if t1.lexeme== 'POTENCIA':
+                        self.contadorp+=1
                     listaPotenciaSimps=[]
                     Op4=Operacion('^')
                     tot2 = 0
@@ -382,9 +415,14 @@ class Scanner:
                     pot= pow(listaPotenciaSimps[0],listaPotenciaSimps[1])
                     Op4.numeros=listaPotenciaSimps
                     Op4.total=pot
+                    Op4.contador=self.contadorp
+                    Op4.texto='Potencia'
                     self.operaciones.append(Op4)
                     print("Resultado: " + str(pot))
+                    print('Número de Potencia: ',self.contadorp)
                 elif t1.lexeme == 'RAIZ':
+                    if t1.lexeme== 'RAIZ':
+                        self.contadorra+=1
                     listaRaizSimps=[]
                     Op5=Operacion('√')
                     tot2 = 0
@@ -394,11 +432,16 @@ class Scanner:
                     raiz = pow(listaRaizSimps[1],(1/(listaRaizSimps[0])))
                     Op5.numeros=listaRaizSimps
                     Op5.total=raiz
+                    Op5.contador=self.contadorra
+                    Op5.texto='Raiz'
                     self.operaciones.append(Op5)
                     print("Resultado: " + str(raiz))
+                    print('Número de Raiz: ',self.contadorra)
                 elif t1.lexeme == 'INVERSO':
+                    if t1.lexeme== 'INVERSO':
+                        self.contadori+=1
                     listaInversoSimps=[]
-                    Op6=Operacion('inverso')
+                    Op6=Operacion('/')
                     tot2 = 0
                     for xd in range (len(listaNums)):
                         listaInversoSimps.append(float(listaNums[xd].lexeme))
@@ -406,11 +449,16 @@ class Scanner:
                     inverso = 1/(listaInversoSimps[0])
                     Op6.numeros=listaInversoSimps
                     Op6.total=inverso
+                    Op6.contador=self.contadori
+                    Op6.texto='Inverso'
                     self.operaciones.append(Op6)
                     print("Resultado: " + str(inverso))
+                    print('Número de Inverso: ',self.contadori)
                 elif t1.lexeme == 'SENO':
+                    if t1.lexeme== 'SENO':
+                        self.contadorsen+=1
                     listaSenoSimps=[]
-                    Op7=Operacion('Seno')
+                    Op7=Operacion('Sen')
                     tot2 = 0
                     for lol in range (len(listaNums)):
                         listaSenoSimps.append(float(listaNums[lol].lexeme))
@@ -418,11 +466,16 @@ class Scanner:
                     senn = sin(listaSenoSimps[0])
                     Op7.numeros=listaSenoSimps
                     Op7.total=senn
+                    Op7.contador=self.contadorsen
+                    Op7.texto='Seno'
                     self.operaciones.append(Op7)
                     print("Resultado: " + str(senn))
+                    print('Número de Seno: ',self.contadorsen)
                 elif t1.lexeme == 'COSENO':
+                    if t1.lexeme== 'COSENO':
+                        self.contadorcos+=1
                     listaCosenoSimps=[]
-                    Op8=Operacion('Coseno')
+                    Op8=Operacion('Cos')
                     tot2 = 0
                     for n in range (len(listaNums)):
                         listaCosenoSimps.append(float(listaNums[n].lexeme))
@@ -430,11 +483,16 @@ class Scanner:
                     coss = cos(listaCosenoSimps[0])
                     Op8.numeros=listaCosenoSimps
                     Op8.total=coss
+                    Op8.contador= self.contadorcos
+                    Op8.texto='Coseno'
                     self.operaciones.append(Op8)
                     print("Resultado: " + str(coss))
+                    print('Número de Coseno: ',self.contadorcos)
                 elif t1.lexeme == 'TANGENTE':
+                    if t1.lexeme== 'TANGENTE':
+                        self.contadortan+=1
                     listaTangenteSimps=[]
-                    Op9=Operacion('Tangente')
+                    Op9=Operacion('Tan')
                     tot2 = 0
                     for unu in range (len(listaNums)):
                         listaTangenteSimps.append(float(listaNums[unu].lexeme))
@@ -442,11 +500,16 @@ class Scanner:
                     tann = tan(listaTangenteSimps[0])
                     Op9.numeros=listaTangenteSimps
                     Op9.total=tann
+                    Op9.contador=self.contadortan
+                    Op9.texto='Tangente'
                     self.operaciones.append(Op9)
                     print("Resultado: " + str(tann))
+                    print('Número de Tangente: ',self.contadortan)
                 elif t1.lexeme == 'MOD':
+                    if t1.lexeme== 'MOD':
+                        self.contadormod+=1
                     listaModSimps=[]
-                    Op10=Operacion('Mod')
+                    Op10=Operacion('%')
                     tot2 = 0
                     for owo in range (len(listaNums)):
                         listaModSimps.append(float(listaNums[owo].lexeme))
@@ -454,10 +517,15 @@ class Scanner:
                     modd = listaModSimps[0] % listaModSimps[1]
                     Op10.numeros=listaModSimps
                     Op10.total=modd
+                    Op10.contador=self.contadormod
+                    Op10.texto='Mod'
                     self.operaciones.append(Op10)
                     print("Resultado: " + str(modd))
+                    print('Número de Mod: ',self.contadormod)
+                elif t1.lexeme == 'Operacion':
+                    pass
         for i in self.operaciones:
-            print("Tipo: ", i.tipo,'Números: ' , i.numeros, 'Total: ', i.total)
+            print("Tipo: ", i.texto,'Números: ' , i.numeros, 'Total: ', i.total, 'No. Operaciones: ' ,i.contador)
                     
 
 
