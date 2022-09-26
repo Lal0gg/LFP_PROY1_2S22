@@ -3,7 +3,7 @@ from scanner import Scanner
 contenido = ""
 
 
-def Inicio(color2,tamanio2):
+def Inicio(color2, tamanio2):
     global contenido
     contenido += """<!doctype html>
 <html lang="en">
@@ -43,37 +43,37 @@ def Inicio(color2,tamanio2):
                             <center>
 
                             <FONT SIZE="""+str(tamanio2)+""" COLOR="""
-    if(color2=='AZUL'):
-        contenido+= """\"blue\""""
-    elif(color2=='ROJO'):
-        contenido+="""\"red\""""
-    elif(color2=='AMARILLO'):
-        contenido+="""\"yellow\""""
-    elif(color2=='VERDE'):
-        contenido+="""\"green\""""
-    elif(color2=='NEGRO'):
-        contenido+="""\"black\""""
-    elif(color2=='ROSADO'):
-        contenido+="""\"magenta\""""
-    elif(color2=='ANARANJADO'):
-        contenido+="""\"orange\""""
-    elif(color2=='MORADO'):
-        contenido+='"purple"'
-    elif(color2=='TURQUESA'):
-        contenido+="""\"turquoise\""""
-    elif(color2=='CYAN'):
-        contenido+="""\"cyan\""""
-    elif(color2=='NARANJA'):
-        contenido+="""\"orange\""""
-    elif(color2=='ROSA'):
-        contenido+="""\"magenta\""""
-    elif(color2=='PURPURA'):
-        contenido+="""\"purple\""""
-    elif(color2=='CAFE'):
-        contenido+="""\"brown\""""
-    elif(color2=='GRIS'):
-        contenido+="""\"grey\""""
-    contenido+=""">"""+str('Reporte de Operaciones')+"""
+    if(color2 == 'AZUL'):
+        contenido += """\"blue\""""
+    elif(color2 == 'ROJO'):
+        contenido += """\"red\""""
+    elif(color2 == 'AMARILLO'):
+        contenido += """\"yellow\""""
+    elif(color2 == 'VERDE'):
+        contenido += """\"green\""""
+    elif(color2 == 'NEGRO'):
+        contenido += """\"black\""""
+    elif(color2 == 'ROSADO'):
+        contenido += """\"magenta\""""
+    elif(color2 == 'ANARANJADO'):
+        contenido += """\"orange\""""
+    elif(color2 == 'MORADO'):
+        contenido += '"purple"'
+    elif(color2 == 'TURQUESA'):
+        contenido += """\"turquoise\""""
+    elif(color2 == 'CYAN'):
+        contenido += """\"cyan\""""
+    elif(color2 == 'NARANJA'):
+        contenido += """\"orange\""""
+    elif(color2 == 'ROSA'):
+        contenido += """\"magenta\""""
+    elif(color2 == 'PURPURA'):
+        contenido += """\"purple\""""
+    elif(color2 == 'CAFE'):
+        contenido += """\"brown\""""
+    elif(color2 == 'GRIS'):
+        contenido += """\"grey\""""
+    contenido += """>"""+str('Reporte de Operaciones')+"""
     </FONT>
                             
                             
@@ -86,195 +86,205 @@ def Inicio(color2,tamanio2):
     </div>
     """
 
-    
-def desc(color1,tamanio1,descripcion):
+
+def desc(color1, tamanio1, descripcion):
     global contenido
-    contenido+= """
+    contenido += """
     <div>
     <FONT SIZE="""+str(tamanio1)+""" COLOR="""
-    if(color1=='AZUL'):
-        contenido+= """\"blue\""""
-    elif(color1=='ROJO'):
-        contenido+="""\"red\""""
-    elif(color1=='AMARILLO'):
-        contenido+="""\"yellow\""""
-    elif(color1=='VERDE'):
-        contenido+="""\"green\""""
-    elif(color1=='NEGRO'):
-        contenido+="""\"black\""""
-    elif(color1=='ROSADO'):
-        contenido+="""\"magenta\""""
-    elif(color1=='ANARANJADO'):
-        contenido+="""\"orange\""""
-    elif(color1=='MORADO'):
-        contenido+='"purple"'
-    elif(color1=='TURQUESA'):
-        contenido+="""\"turquoise\""""
-    elif(color1=='CYAN'):
-        contenido+="""\"cyan\""""
-    elif(color1=='NARANJA'):
-        contenido+="""\"orange\""""
-    elif(color1=='ROSA'):
-        contenido+="""\"magenta\""""
-    elif(color1=='PURPURA'):
-        contenido+="""\"purple\""""
-    elif(color1=='CAFE'):
-        contenido+="""\"brown\""""
-    elif(color1=='GRIS'):
-        contenido+="""\"grey\""""
-    contenido+=""">"""+str(descripcion.replace("\n","<br>"))+"""
+    if(color1 == 'AZUL'):
+        contenido += """\"blue\""""
+    elif(color1 == 'ROJO'):
+        contenido += """\"red\""""
+    elif(color1 == 'AMARILLO'):
+        contenido += """\"yellow\""""
+    elif(color1 == 'VERDE'):
+        contenido += """\"green\""""
+    elif(color1 == 'NEGRO'):
+        contenido += """\"black\""""
+    elif(color1 == 'ROSADO'):
+        contenido += """\"magenta\""""
+    elif(color1 == 'ANARANJADO'):
+        contenido += """\"orange\""""
+    elif(color1 == 'MORADO'):
+        contenido += '"purple"'
+    elif(color1 == 'TURQUESA'):
+        contenido += """\"turquoise\""""
+    elif(color1 == 'CYAN'):
+        contenido += """\"cyan\""""
+    elif(color1 == 'NARANJA'):
+        contenido += """\"orange\""""
+    elif(color1 == 'ROSA'):
+        contenido += """\"magenta\""""
+    elif(color1 == 'PURPURA'):
+        contenido += """\"purple\""""
+    elif(color1 == 'CAFE'):
+        contenido += """\"brown\""""
+    elif(color1 == 'GRIS'):
+        contenido += """\"grey\""""
+    contenido += """>"""+str(descripcion.replace("\n", "<br>"))+"""
     </FONT>
     </div>
     """
 
 
-
-def finish(operaciones,color,tamanio):
+def finish(operaciones, color, tamanio):
     global contenido
     for operacion in operaciones:
+        contenido += """<div style="background-color:#cefffb" >
+            <FONT SIZE="""+str(tamanio)+""" COLOR="""
+        if(color == 'AZUL'):
+            contenido += """\"blue\""""
+        elif(color == 'ROJO'):
+            contenido += """\"red\""""
+        elif(color == 'AMARILLO'):
+            contenido += """\"yellow\""""
+        elif(color == 'VERDE'):
+            contenido += """\"green\""""
+        elif(color == 'NEGRO'):
+            contenido += """\"black\""""
+        elif(color == 'ROSADO'):
+            contenido += """\"magenta\""""
+        elif(color == 'ANARANJADO'):
+            contenido += """\"orange\""""
+        elif(color == 'MORADO'):
+            contenido += '"purple"'
+        elif(color == 'TURQUESA'):
+            contenido += """\"turquoise\""""
+        elif(color == 'CYAN'):
+            contenido += """\"cyan\""""
+        elif(color == 'NARANJA'):
+            contenido += """\"orange\""""
+        elif(color == 'ROSA'):
+            contenido += """\"magenta\""""
+        elif(color == 'PURPURA'):
+            contenido += """\"purple\""""
+        elif(color == 'CAFE'):
+            contenido += """\"brown\""""
+        elif(color == 'GRIS'):
+            contenido += """\"grey\""""
+        contenido += """>"""
         if operacion.texto == 'Suma':
             contenido += """
-            
-            <div style="background-color:#cefffb" >
-            <FONT SIZE="""+str(tamanio)+""" COLOR="""
-            if(color=='AZUL'):
-                contenido+= """\"blue\""""
-            elif(color=='ROJO'):
-                contenido+="""\"red\""""
-            elif(color=='AMARILLO'):
-                contenido+="""\"yellow\""""
-            elif(color=='VERDE'):
-                contenido+="""\"green\""""
-            elif(color=='NEGRO'):
-                contenido+="""\"black\""""
-            elif(color=='ROSADO'):
-                contenido+="""\"magenta\""""
-            elif(color=='ANARANJADO'):
-                contenido+="""\"orange\""""
-            elif(color=='MORADO'):
-                contenido+='"purple"'
-            elif(color=='TURQUESA'):
-                contenido+="""\"turquoise\""""
-            elif(color=='CYAN'):
-                contenido+="""\"cyan\""""
-            elif(color=='NARANJA'):
-                contenido+="""\"orange\""""
-            elif(color=='ROSA'):
-                contenido+="""\"magenta\""""
-            elif(color=='PURPURA'):
-                contenido+="""\"purple\""""
-            elif(color=='CAFE'):
-                contenido+="""\"brown\""""
-            elif(color=='GRIS'):
-                contenido+="""\"grey\""""
-            contenido+= """> 
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-        """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
-            
-        </p>
-    </div>"""
+
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+            """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
+                
+            </p>
+            </FONT>
+
+        </div>"""
         elif operacion.texto == 'Resta':
             contenido += """
-            <div>
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#ffffff">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Multiplicación':
             contenido += """
-            <div style="background-color:#cefffb">
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#cefffb">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Division':
             contenido += """
-            <div>
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#ffffff">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Potencia':
             contenido += """
-            <div style="background-color:#cefffb">
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#cefffb">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Raiz':
             contenido += """
-            <div>
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#ffffff">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Inverso':
             contenido += """
-            <div style="background-color:#cefffb">
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(1)+str(operacion.tipo)+str(operacion.numeros[0])+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#cefffb">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(1)+str(operacion.tipo)+str(operacion.numeros[0])+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Seno':
             contenido += """
-            <div>
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.tipo)+str('(')+str(operacion.numeros[0])+str(')')+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#ffffff">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.tipo)+str('(')+str(operacion.numeros[0])+str(')')+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Coseno':
             contenido += """
-            <div style="background-color:#cefffb">
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.tipo)+str('(')+str(operacion.numeros[0])+str(')')+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#cefffb">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.tipo)+str('(')+str(operacion.numeros[0])+str(')')+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Tangente':
             contenido += """
-            <div>
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.tipo)+str('(')+str(operacion.numeros[0])+str(')')+"="+str(operacion.total)+"""
-        </p>
-    </div>"""
+                <div style="background-color:#ffffff">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.tipo)+str('(')+str(operacion.numeros[0])+str(')')+"="+str(operacion.total)+"""
+            </p>
+            </FONT>
+        </div>"""
         elif operacion.texto == 'Mod':
             contenido += """
-            <div style="background-color:#cefffb">
-        <p>
-            Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
-        </p>
-        <p>
-            """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
-        </p>
+                <div style="background-color:#cefffb">
+            <p>
+                Operacion """+str(operacion.texto)+""" """+str(operacion.contador)+""":
+            </p>
+            <p>
+                """+str(operacion.numeros[0])+str(operacion.tipo)+str(operacion.numeros[1])+"="+str(operacion.total)+"""
+            </p>
     </FONT>
     </div>"""
     contenido += """
@@ -324,8 +334,8 @@ def creararchivo():
     os.startfile("ReporteOpes.html")
 
 
-def generararchivoOp(operaciones,color,tamanio,color1,tamanio1,descripcion,color2,tamanio2):
-    Inicio(color2,tamanio2)
-    desc(color1,tamanio1,descripcion)
-    finish(operaciones,color,tamanio)
+def generararchivoOp(operaciones, color, tamanio, color1, tamanio1, descripcion, color2, tamanio2):
+    Inicio(color2, tamanio2)
+    desc(color1, tamanio1, descripcion)
+    finish(operaciones, color, tamanio)
     creararchivo()
