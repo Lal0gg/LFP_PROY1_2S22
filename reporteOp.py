@@ -41,7 +41,6 @@ def Inicio(color2, tamanio2):
                     <div class="p-3 mb-2 text-white" style="background-color:#d8bcf1">
                         <p>
                             <center>
-
                             <FONT SIZE="""+str(tamanio2)+""" COLOR="""
     if(color2 == 'AZUL'):
         contenido += """\"blue\""""

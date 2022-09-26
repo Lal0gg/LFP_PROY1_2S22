@@ -9,6 +9,7 @@ from scanner import Scanner
 from Clases import Error, Token
 from reporteEr import *
 from reporteOp import *
+import webbrowser as wb
 
 
 # Variables globales
@@ -30,10 +31,8 @@ def window_mainMenu():
     wndw_menu.geometry("1080x720")
     wndw_menu.config(bg="#E4E3FF")
     wndw_menu.config(bd=30)
-
     SubMenu = Menu(wnd_menu, selectcolor="green")
     wndw_menu.config(menu=SubMenu)
-
     # Items del menú1
     file_menu = Menu(SubMenu, tearoff=0)
     SubMenu.add_cascade(label="Archivo", menu=file_menu)
@@ -57,26 +56,18 @@ def window_mainMenu():
     # Items del menú2
     help_menu = Menu(SubMenu, tearoff=0)
     SubMenu.add_cascade(label="Ayuda", menu=help_menu)
-    help_menu.add_command(label="Manual de Usuario", command=our_command, font=(
+    help_menu.add_command(label="Manual de Usuario", command=openManualUser, font=(
         "Courier 10 bold"), background="#E4E3FF")
     help_menu.add_separator()
-    help_menu.add_command(label="Manual Técnico", command=our_command, font=(
+    help_menu.add_command(label="Manual Técnico", command=openManualTec, font=(
         "Courier 10 bold"), background="#E4E3FF")
     help_menu.add_separator()
     help_menu.add_command(label="Temas de Ayuda", command=datau, font=(
         "Courier 10 bold"), background="#E4E3FF")
-
     scroll1 = scrolledtext.ScrolledText(
-        wndw_menu, width=60, height=40, font=('Courier', 10), wrap=WORD)
-    scroll1.place(x=0, y=10)
+        wndw_menu, width=100, height=40, font=('Courier', 10), wrap=WORD)
+    scroll1.place(x=80, y=10)
     scroll1.focus()
-
-    scroll2 = scrolledtext.ScrolledText(
-        wndw_menu, width=60, height=40, font=('Courier', 10), wrap=WORD)
-    scroll2.place(x=515, y=10)
-    scroll2.configure(state='disabled')
-    scroll2.focus()
-
     wndw_menu.mainloop()
 
 
@@ -88,6 +79,13 @@ def datau():
     mensaje = messagebox.showinfo(
         "Datos", " Curso: Lenguajes Formales y de Programación\n Nombre: Eduardo Josué González Cifuentes\n Carnet: 201900647 \n Sección: A-")
 
+def openManualTec():
+    path='Manual Técnico Proy1 LFP.pdf'
+    wb.open_new_tab(path)
+
+def openManualUser():
+    path='Manual Usuario Proy1 LFP.pdf'
+    wb.open_new_tab(path)
 
 def openfile():
     global file
@@ -110,10 +108,8 @@ def openfile():
             else:
                 tkinter.messagebox.showinfo(
                     "ERROR", "Ya se cargó  este archivo")
-
         else:
             tkinter.messagebox.showinfo("ERROR", "No se cargó ningún archivo")
-
     except:
         pass
 
