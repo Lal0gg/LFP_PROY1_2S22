@@ -6,3 +6,4 @@ class Operacion:
         self.contador=0
         self.texto = ''
 
+

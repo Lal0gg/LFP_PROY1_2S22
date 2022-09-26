@@ -40,7 +40,7 @@ pie-pagina{
 .pie-pagina .grupo-1 .box figure img{
     width: 250px;
 }
-.pie-pagina .grupo-1 .box h2{
+.pie-pagina .grupo-1 .box xdd{
     color: #fff;
     margin-bottom: 25px;
     font-size: 20px;
@@ -52,7 +52,7 @@ pie-pagina{
 }
 .pie-pagina .grupo-1 .box p{
     color: #efefef;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     background-color: #0a141d;
 }
 
@@ -65,4 +65,5 @@ pie-pagina{
 .pie-pagina .grupo-2 small{
     font-size: 15px;
     background-color: #0a141d;
+    color: #efefef;
 }

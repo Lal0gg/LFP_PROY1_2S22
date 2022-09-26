@@ -107,7 +107,7 @@ def report():
 
 def reportOP():
     global ScannerGG
-    generararchivoOp(ScannerGG.operaciones)
+    generararchivoOp(ScannerGG.operaciones,ScannerGG.colorcontenido,ScannerGG.tamniocontenido,ScannerGG.colordescrip,ScannerGG.tamaniodescrip,ScannerGG.descripcionn,ScannerGG.colortitulo,ScannerGG.tamaniotitulo)
 
 
 
@@ -144,9 +144,11 @@ def scanner():
     contenido1 = scroll1.get(1.0,tkinter.END)
     if contenido1 != "":
         ScannerGG.analyze(contenido1)
-        #ScannerGG.printScannergg()
+        ScannerGG.printScannergg()
         # ScannerGG.printList()
         ScannerGG.Operar()
+        ScannerGG.description()
+        ScannerGG.coloresgg()
         reportOP()
     else:
         tkinter.messagebox.showinfo("ERROR", "No se puede analizar")
